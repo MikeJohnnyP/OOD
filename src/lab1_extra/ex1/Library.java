@@ -3,7 +3,6 @@ package lab1_extra.ex1;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,15 +34,13 @@ public class Library {
 		Book book9 = new Book("Chuyen hanh huong", 544745345, 1997, au4);
 		Book book10 = new Book("Ngoai tinh", 543645436, 2014, au4);
 
-		
-
 		Member mem1 = new Member("Nguyen Nhat Tan", "45ed453", new ContactInformation("34234@mail.com", "098754352"));
 		Member mem2 = new Member("Pham Tuan Kiet", "45id567", new ContactInformation("4564@yahoo.com", "087654342"));
 		Member mem3 = new Member("Huynh Xuan Truong", "76id656", new ContactInformation("456@google.com", "067854343"));
 		Member mem4 = new Member("Ho Hoai Huong", "65ed678",
 				new ContactInformation("34564@st.hcmuaf.edu.vn", "08653452"));
 		Member mem5 = new Member("Ta Viet Tien", "98id653", new ContactInformation("764@yahoo.com", "0974543643"));
-		
+
 		book1.setIsBorrowByName(true, mem4.getName());
 		book3.setIsBorrowByName(true, mem1.getName());
 		book3.setDurationBorrow(new GregorianCalendar(2024, 3, 15).getTime());
@@ -51,7 +48,7 @@ public class Library {
 		book4.setDurationBorrow(new GregorianCalendar(2024, 3, 11).getTime());
 		book5.setIsBorrowByName(true, mem3.getName());
 		book6.setIsBorrowByName(true, mem2.getName());
-		book7.setIsBorrowByName(true, mem5.getName() );
+		book7.setIsBorrowByName(true, mem5.getName());
 		book8.setIsBorrowByName(true, mem5.getName());
 
 		books.add(book1);
@@ -64,7 +61,7 @@ public class Library {
 		books.add(book8);
 		books.add(book9);
 		books.add(book10);
-		
+
 		mem1.addBook(book3);
 		mem2.addBook(book4);
 		mem3.addBook(book5);
@@ -157,54 +154,54 @@ public class Library {
 		int x = sc.nextInt();
 		sc.nextLine();
 		switch (x) {
-		case 1:
-			System.out.print("Nhap vao ten sach: ");
-			String nameBook = sc.nextLine();
-			Book b2 = new Book(nameBook, 0, 0, null);
-			if (!checkBook(b2)) {
-				System.out.println("Khong co sach nay!!!");
-				break;
-			}
-			if (checkAvailable(b2)) {
-				System.out.println("sach da duoc dat!!!");
-				break;
-			} else {
-				Member temp = new Member(name, memberID, null);
-				b2.setIsBorrowByName(true, temp.getName());
-				refreshAvailable(b2, temp.getName());
-				Book setBook = getABook(b2);
-				setBook.setIsBorrowByName(true, temp.getName());
-				temp.addBook(setBook);
-				libraryMember.add(temp);
-				System.out.println("Dat sach thanh cong");
-				break;
-			}
+			case 1:
+				System.out.print("Nhap vao ten sach: ");
+				String nameBook = sc.nextLine();
+				Book b2 = new Book(nameBook, 0, 0, null);
+				if (!checkBook(b2)) {
+					System.out.println("Khong co sach nay!!!");
+					break;
+				}
+				if (checkAvailable(b2)) {
+					System.out.println("sach da duoc dat!!!");
+					break;
+				} else {
+					Member temp = new Member(name, memberID, null);
+					b2.setIsBorrowByName(true, temp.getName());
+					refreshAvailable(b2, temp.getName());
+					Book setBook = getABook(b2);
+					setBook.setIsBorrowByName(true, temp.getName());
+					temp.addBook(setBook);
+					libraryMember.add(temp);
+					System.out.println("Dat sach thanh cong");
+					break;
+				}
 
-		case 2:
-			System.out.print("Nhap vao ma ISBN: ");
-			int ISBNcode = sc.nextInt();
-			Book b3 = new Book(null, ISBNcode, 0, null);
-			if (!checkBook(b3)) {
-				System.out.println("Khong co sach nay!!!");
+			case 2:
+				System.out.print("Nhap vao ma ISBN: ");
+				int ISBNcode = sc.nextInt();
+				Book b3 = new Book(null, ISBNcode, 0, null);
+				if (!checkBook(b3)) {
+					System.out.println("Khong co sach nay!!!");
+					break;
+				}
+				if (checkAvailable(b3)) {
+					System.out.println("sach da duoc dat!!!");
+					break;
+				} else {
+					Member temp = new Member(name, memberID, null);
+					b3.setIsBorrowByName(true, temp.getName());
+					refreshAvailable(b3, temp.getName());
+					Book setBook = getABook(b3);
+					setBook.setIsBorrowByName(true, temp.getName());
+					temp.addBook(setBook);
+					libraryMember.add(temp);
+					System.out.println("Dat sach thanh cong");
+					break;
+				}
+			default:
+				System.out.println("Nhap sai!!!");
 				break;
-			}
-			if (checkAvailable(b3)) {
-				System.out.println("sach da duoc dat!!!");
-				break;
-			} else {
-				Member temp = new Member(name, memberID, null);
-				b3.setIsBorrowByName(true, temp.getName());
-				refreshAvailable(b3, temp.getName());
-				Book setBook = getABook(b3);
-				setBook.setIsBorrowByName(true, temp.getName());
-				temp.addBook(setBook);
-				libraryMember.add(temp);
-				System.out.println("Dat sach thanh cong");
-				break;
-			}
-		default:
-			System.out.println("Nhap sai!!!");
-			break;
 		}
 	}
 
@@ -214,67 +211,67 @@ public class Library {
 		int x = sc.nextInt();
 		sc.nextLine();
 		switch (x) {
-		case 1:
-			System.out.print("Nhap vao ten sach: ");
-			String nameBook = sc.nextLine();
-			Book b2 = new Book(nameBook, 0, 0, null);
-			if (!checkBook(b2)) {
-				System.out.println("Khong co sach nay!!!");
-				break;
-			}
-			if (checkAvailable(b2)) {
-				Book tempBook = lb.getABook(b2);
-				if (tempBook.getIsOverdue(new Date())) {
-					System.out.println("Sach qua han gui, ban bi phat them 50.000vnd " + "le phi");
+			case 1:
+				System.out.print("Nhap vao ten sach: ");
+				String nameBook = sc.nextLine();
+				Book b2 = new Book(nameBook, 0, 0, null);
+				if (!checkBook(b2)) {
+					System.out.println("Khong co sach nay!!!");
+					break;
+				}
+				if (checkAvailable(b2)) {
+					Book tempBook = lb.getABook(b2);
+					if (tempBook.getIsOverdue(new Date())) {
+						System.out.println("Sach qua han gui, ban bi phat them 50.000vnd " + "le phi");
 
+					}
+
+					b2.setIsBorrowByName(false, null);
+					refreshAvailable(b2, null);
+					Member temp = lb.getMemberReturnBook(b2);
+					lb.getLibraryMember().remove(temp);
+					temp.removeBook(b2);
+					libraryMember.add(temp);
+					System.out.println("Gui lai thanh cong!!!");
+
+					break;
+				} else {
+					System.out.println("Sach chua duoc dat!!!");
+					break;
 				}
 
-				b2.setIsBorrowByName(false, null);
-				refreshAvailable(b2, null);
-				Member temp = lb.getMemberReturnBook(b2);
-				lb.getLibraryMember().remove(temp);
-				temp.removeBook(b2);
-				libraryMember.add(temp);
-				System.out.println("Gui lai thanh cong!!!");
+			case 2:
+				System.out.print("Nhap vao ma ISBN: ");
+				int ISBN = sc.nextInt();
+				Book b3 = new Book(null, ISBN, 0, null);
+				if (!checkBook(b3)) {
+					System.out.println("Khong co sach nay!!!");
+					break;
+				}
+				if (checkAvailable(b3)) {
+					Book tempBook = lb.getABook(b3);
+					if (tempBook.getIsOverdue(new Date())) {
+						System.out.println("Sach qua han gui, ban bi phat them 50.000vnd " + "le phi");
 
-				break;
-			} else {
-				System.out.println("Sach chua duoc dat!!!");
-				break;
-			}
+					}
 
-		case 2:
-			System.out.print("Nhap vao ma ISBN: ");
-			int ISBN = sc.nextInt();
-			Book b3 = new Book(null, ISBN, 0, null);
-			if (!checkBook(b3)) {
-				System.out.println("Khong co sach nay!!!");
-				break;
-			}
-			if (checkAvailable(b3)) {
-				Book tempBook = lb.getABook(b3);
-				if (tempBook.getIsOverdue(new Date())) {
-					System.out.println("Sach qua han gui, ban bi phat them 50.000vnd " + "le phi");
+					b3.setIsBorrowByName(false, null);
+					refreshAvailable(b3, null);
+					Member temp = lb.getMemberReturnBook(b3);
+					lb.getLibraryMember().remove(temp);
+					temp.removeBook(b3);
+					libraryMember.add(temp);
+					System.out.println("Gui lai thanh cong!!!");
 
+					break;
+				} else {
+					System.out.println("Sach chua duoc dat!!!");
+					break;
 				}
 
-				b3.setIsBorrowByName(false, null);
-				refreshAvailable(b3, null);
-				Member temp = lb.getMemberReturnBook(b3);
-				lb.getLibraryMember().remove(temp);
-				temp.removeBook(b3);
-				libraryMember.add(temp);
-				System.out.println("Gui lai thanh cong!!!");
-
+			default:
+				System.out.println("Nhap sai!!!");
 				break;
-			} else {
-				System.out.println("Sach chua duoc dat!!!");
-				break;
-			}
-
-		default:
-			System.out.println("Nhap sai!!!");
-			break;
 		}
 	}
 
@@ -282,25 +279,26 @@ public class Library {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Nhap ten nguoi dat: ");
 		String name = sc.nextLine();
-		
+
 		for (Member i : libraryMember) {
-			if(i.getName().equalsIgnoreCase(name)) {
+			if (i.getName().equalsIgnoreCase(name)) {
 				for (Book b : i.getBorrowList()) {
-					System.out.println("Nguoi dat: " + b.getBorrower() + "\tSach: "+ b.getName());
+					System.out.println("Nguoi dat: " + b.getBorrower() + "\tSach: " + b.getName());
 				}
-			}	
+			}
 		}
-			
+
 	}
+
 	private void overdueBook() {
-		for(Member i : libraryMember) {
-			for(Book b : i.getBorrowList()) {
-				if(b.getIsOverdue(new Date())) {
+		for (Member i : libraryMember) {
+			for (Book b : i.getBorrowList()) {
+				if (b.getIsOverdue(new Date())) {
 					System.out.println(b);
 				}
 			}
 		}
-		
+
 	}
 
 	public void menu() {
@@ -339,26 +337,25 @@ public class Library {
 			youChoose = sc.nextInt();
 			sc.nextLine();
 			switch (youChoose) {
-			case 1:
-				lb.borrowABook();
-				break;
-			case 2:
-				lb.returnABook(lb);
-				break;
-			case 3:
-				lb.memberBorrowed();
-				break;
-			case 4: 
-				lb.overdueBook();
-				break;
-			case 5:
-				isRunning = false;
-				break;
-			default:
-				System.out.println("Nhap sai!!!");
+				case 1:
+					lb.borrowABook();
+					break;
+				case 2:
+					lb.returnABook(lb);
+					break;
+				case 3:
+					lb.memberBorrowed();
+					break;
+				case 4:
+					lb.overdueBook();
+					break;
+				case 5:
+					isRunning = false;
+					break;
+				default:
+					System.out.println("Nhap sai!!!");
 			}
 		}
 	}
 
-	
 }

@@ -1,6 +1,5 @@
 package lab1_extra.ex2;
 
-import java.awt.DisplayMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -182,7 +181,7 @@ public class University {
 			}
 		}
 	}
-	
+
 	public Student getStudentInList(Student student) {
 		for (Student s : studentsList) {
 			if (s.getName().equalsIgnoreCase(student.getName())
@@ -193,11 +192,11 @@ public class University {
 		return null;
 	}
 
-//	public Program getPrgram(String name) {
-//		for(Program g : programs) {
-//			if()
-//		}
-//	}
+	// public Program getPrgram(String name) {
+	// for(Program g : programs) {
+	// if()
+	// }
+	// }
 
 	public void enrollStudentInProgram() {
 		Scanner sc = new Scanner(System.in);
@@ -258,27 +257,27 @@ public class University {
 			System.out.println("Co Sv trong ds");
 			Student after = getStudentInList(temp);
 			studentsList.remove(after);
-			for(int i = 0; i< after.getCoursesEnrolled().size(); i++) {
+			for (int i = 0; i < after.getCoursesEnrolled().size(); i++) {
 				System.out.println((i + 1) + ". " + after.getCoursesEnrolled().get(i));
 			}
 
-				System.out.println("Chon mon hoc muon them diem: ");
-				int order = sc.nextInt();
-				
-				if (order > after.getCoursesEnrolled().size() || order <= 0) {
-					System.out.println("Khong co trong ds");
-				} else {
-					String courseCode = after.getCoursesEnrolled().get(order - 1).getCode();
-					System.out.println("Ban chon: " + after.getCoursesEnrolled().get(order - 1).getName());
-					System.out.println("Nhap diem de thay doi: ");
-					int grade = sc.nextInt();
-					after.enterGrades(courseCode, grade);
-					addStudent(after);
-					System.out.println("Them thanh cong!!!");
-				}
+			System.out.println("Chon mon hoc muon them diem: ");
+			int order = sc.nextInt();
+
+			if (order > after.getCoursesEnrolled().size() || order <= 0) {
+				System.out.println("Khong co trong ds");
+			} else {
+				String courseCode = after.getCoursesEnrolled().get(order - 1).getCode();
+				System.out.println("Ban chon: " + after.getCoursesEnrolled().get(order - 1).getName());
+				System.out.println("Nhap diem de thay doi: ");
+				int grade = sc.nextInt();
+				after.enterGrades(courseCode, grade);
+				addStudent(after);
+				System.out.println("Them thanh cong!!!");
 			}
 		}
-	
+	}
+
 	public void displayStudentTranscript() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Nhap Ten SV: ");
@@ -289,8 +288,7 @@ public class University {
 		if (checkStudent(temp)) {
 			Student after = getStudentInList(temp);
 			after.displayTranscript();
-		}
-		else {
+		} else {
 			System.out.println("Sv khong co trong ds");
 		}
 	}
@@ -304,21 +302,21 @@ public class University {
 			System.out.print("Ban chon so: ");
 			int yourChoice = sc.nextInt();
 			switch (yourChoice) {
-			case 1:
-				uni.enrollStudentInProgram();
-				break;
-			case 2:
-				uni.enrollStudentInCourse();
-				break;
-			case 3:
-				uni.enterGradesForStudent();
-				break;
-			case 4:
-				uni.displayStudentTranscript();
-				break;
-			case 5:
-				isRunning = false;
-				break;
+				case 1:
+					uni.enrollStudentInProgram();
+					break;
+				case 2:
+					uni.enrollStudentInCourse();
+					break;
+				case 3:
+					uni.enterGradesForStudent();
+					break;
+				case 4:
+					uni.displayStudentTranscript();
+					break;
+				case 5:
+					isRunning = false;
+					break;
 			}
 
 		}

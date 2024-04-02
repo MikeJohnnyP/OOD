@@ -1,7 +1,6 @@
 package lab1_extra.ex1;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Member {
@@ -41,45 +40,42 @@ public class Member {
 	public void setContactInformation(ContactInformation contactInformation) {
 		this.contactInformation = contactInformation;
 	}
-	
+
 	public void addBook(Book book) {
-		if(book.getIsBorrow() == false) return;
+		if (book.getIsBorrow() == false)
+			return;
 		borrowList.add(book);
 	}
+
 	public boolean isContainsBook(Book book) {
-		for (Book b : borrowList ) {
-			if(b.getName().equalsIgnoreCase(book.getName()) || b.getISBN() == book.getISBN()) {
+		for (Book b : borrowList) {
+			if (b.getName().equalsIgnoreCase(book.getName()) || b.getISBN() == book.getISBN()) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	public void removeBook(Book book) {
 		for (Book b : borrowList) {
-			if(b.getName().equalsIgnoreCase(book.getName()) || b.getISBN() == book.getISBN()) {
+			if (b.getName().equalsIgnoreCase(book.getName()) || b.getISBN() == book.getISBN()) {
 				borrowList.remove(b);
 			}
-			
+
 		}
 	}
-	
-	public List<Book> getBorrowList(){
+
+	public List<Book> getBorrowList() {
 		return borrowList;
 	}
-	
-	
+
 	public boolean isEmptyBorrowList() {
 		return borrowList.isEmpty();
 	}
 
 	@Override
 	public String toString() {
-		return "Ten nguoi dat: " + name + ", memberID: " + membershipID + ", lien he: " + contactInformation + '\n'; 
+		return "Ten nguoi dat: " + name + ", memberID: " + membershipID + ", lien he: " + contactInformation + '\n';
 	}
-	
-	
-	
-	
 
 }
