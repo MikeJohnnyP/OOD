@@ -60,6 +60,13 @@ public class ClockHandle implements Subject, Runnable {
         windowList.remove(window);
     }
 
+    @Override
+    public void notifyObserver() {
+        for (Window window : windowList) {
+            window.show(this);
+        }
+    }
+
     public synchronized void start() {
         thread = new Thread(this);
         isRunning = true;
@@ -85,9 +92,7 @@ public class ClockHandle implements Subject, Runnable {
                 time.next();
                 // System.out.println(time.getHour() + " " + time.getMinute() + " " +
                 // time.getSecond());
-                for (Window window : windowList) {
-                    window.show(this);
-                }
+                notifyObserver();
                 Thread.sleep(1000);
             }
         } catch (Exception e) {

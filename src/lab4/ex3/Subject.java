@@ -5,4 +5,6 @@ public interface Subject {
 
     public void removeClock(Window window);
 
+    public void notifyObserver();
+
 }
