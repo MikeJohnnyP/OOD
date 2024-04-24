@@ -9,6 +9,11 @@ public class Test {
         registerCityClock(clock, 2);
         clock.start();
 
+        ClockHandle clock2 = new ClockHandle(13, 32, 5, false);
+        registerCircleClock(clock2, 2);
+        registerLabelClock(clock2, 3);
+        clock2.start();
+
     }
 
     public static void registerCircleClock(ClockHandle handle, int clock) {
