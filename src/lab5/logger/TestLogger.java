@@ -9,6 +9,10 @@ public class TestLogger {
         y.log("Choi nhieu qua gio het hung roi!");
         y.log("An nhieu qua beo roi");
 
+        LoggerDecorator a = new LoggerDecorator(y);
+        a = new EncryptLogger(y);
+        a.log("dfsdsf");
+
     }
 
 }

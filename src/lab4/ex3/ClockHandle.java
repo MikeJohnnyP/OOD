@@ -93,7 +93,7 @@ public class ClockHandle implements Subject, Runnable {
                 // System.out.println(time.getHour() + " " + time.getMinute() + " " +
                 // time.getSecond());
                 notifyObserver();
-                Thread.sleep(1000);
+                Thread.sleep(1);
             }
         } catch (Exception e) {
             e.printStackTrace();
